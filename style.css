@@ -1,0 +1,178 @@
+body {
+    background-color: #1f1a24;
+    color: #4a404d;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Lienzo de fondo dinámico */
+#bgCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(135deg, #2c1b33 0%, #1a1220 50%, #291830 100%);
+}
+
+/* Contenedor principal tipo App Móvil */
+.mobile-wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: rgba(253, 251, 247, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(212, 175, 55, 0.2);
+    border-right: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Notificación Toast */
+#toast {
+    visibility: hidden;
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #333;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #f3e8ff;
+    opacity: 0;
+    transition: opacity 0.3s, top 0.3s;
+}
+#toast.show {
+    visibility: visible;
+    opacity: 1;
+    top: 35px;
+}
+
+/* Botón de música flotante */
+.music-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, #d4af37, #f3e8ff);
+    color: #581c87;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    z-index: 999;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #fff;
+}
+.music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+}
+
+/* Tarjetas estilo cristal */
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(244, 114, 182, 0.2);
+    box-shadow: 0 10px 30px rgba(244, 114, 182, 0.08);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(8px);
+}
+
+/* Pase VIP Dorado */
+.vip-pass {
+    background: linear-gradient(135deg, #fff5f7 0%, #fffdf9 100%);
+    border: 2px dashed #d4af37;
+    border-radius: 1.25rem;
+    position: relative;
+    overflow: hidden;
+}
+.vip-pass::before, .vip-pass::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #fdfbf7;
+    border-radius: 50%;
+    border: 1px solid #d4af37;
+}
+.vip-pass::before { top: -12px; left: 50%; transform: translateX(-12px); }
+.vip-pass::after { bottom: -12px; left: 50%; transform: translateX(-12px); }
+
+/* Estilos de secciones generales */
+section {
+    padding: 1.75rem 1.25rem;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #831843;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.section-title i {
+    color: #d4af37;
+    font-size: 1.25rem;
+}
+
+/* Línea de tiempo */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: linear-gradient(to bottom, #d4af37, #f472b6);
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d4af37;
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px rgba(212,175,55,0.5);
+}
+
+/* Animaciones suaves */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+.floating-badge {
+    animation: float 4s ease-in-out infinite;
+}

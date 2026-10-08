@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 3 Añitos - Mariana Yaretzi</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Tailwind CSS para layouts fluidos y modernos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastelPink: '#fce7f3',
+                        softGold: '#d4af37',
+                        champagne: '#fdfbf7',
+                        roseAccent: '#e11d48',
+                        cardBg: 'rgba(255, 255, 255, 0.85)'
+                    },
+                    fontFamily: {
+                        script: ['"Great Vibes"', 'cursive'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- NOTIFICACIÓN TOAST ELEGANTE -->
+    <div id="toast">
+        <i class="fa-solid fa-circle-check text-pink-600" id="toastIcon"></i>
+        <span id="toastText" class="font-medium">Mensaje</span>
+    </div>
+
+    <!-- BOTÓN MÚSICA AMBIENTAL -->
+    <button class="music-btn" onclick="toggleMusic()" title="Reproducir música ambiental de cajita de música">
+        <i class="fa-solid fa-music text-xl" id="musicIcon"></i>
+    </button>
+
+    <div class="mobile-wrapper">
+        
+        <!-- HERO / PORTADA -->
+        <header class="relative text-center px-6 pt-12 pb-8 overflow-hidden rounded-b-[2.5rem] bg-gradient-to-b from-pink-50 via-pink-100/50 to-transparent border-b border-pink-200/50">
+            <div class="inline-block px-4 py-1.5 mb-4 rounded-full bg-white/80 border border-amber-300 shadow-sm floating-badge">
+                <span class="text-xs uppercase tracking-widest font-bold text-amber-700"><i class="fa-solid fa-crown mr-1"></i> Mis Tres Añitos <i class="fa-solid fa-crown ml-1"></i></span>
+            </div>
+            
+            <h1 class="font-script text-6xl md:text-7xl text-pink-900 mb-2 drop-shadow-sm">Mariana Yaretzi</h1>
+            <p class="font-serif italic text-base text-pink-700/80 mb-6">"Con la bendición de Dios y la alegría de mis papás, celebro mi presentación de tres años."</p>
+            
+            <!-- Fotografía de Portada Circular -->
+            <div class="relative w-36 h-36 mx-auto mb-6 rounded-full p-1.5 bg-gradient-to-tr from-amber-400 via-pink-400 to-pink-200 shadow-xl">
+                <div class="w-full h-full rounded-full bg-white overflow-hidden flex items-center justify-center relative">
+                    <img src="https://placehold.co/300x300/fce7f3/831843?text=Sofía" alt="Mariana Yaretzi" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/300x300/fce7f3/831843?text=Sofía'">
+                </div>
+            </div>
+
+            <!-- Cuenta Regresiva Interactiva -->
+            <div class="glass-card p-4 shadow-md max-w-xs mx-auto">
+                <p class="text-xs font-semibold uppercase tracking-wider text-pink-800 mb-3"><i class="fa-regular fa-hourglass-half text-amber-600 mr-1"></i> Faltan muy poquitos días</p>
+                <div class="grid grid-cols-4 gap-2 text-center">
+                    <div class="bg-white/80 rounded-xl p-2 shadow-sm border border-pink-100">
+                        <span id="days" class="block text-lg font-bold text-pink-900">00</span>
+                        <small class="text-[10px] text-gray-500 uppercase">Días</small>
+                    </div>
+                    <div class="bg-white/80 rounded-xl p-2 shadow-sm border border-pink-100">
+                        <span id="hours" class="block text-lg font-bold text-pink-900">00</span>
+                        <small class="text-[10px] text-gray-500 uppercase">Hrs</small>
+                    </div>
+                    <div class="bg-white/80 rounded-xl p-2 shadow-sm border border-pink-100">
+                        <span id="minutes" class="block text-lg font-bold text-pink-900">00</span>
+                        <small class="text-[10px] text-gray-500 uppercase">Min</small>
+                    </div>
+                    <div class="bg-white/80 rounded-xl p-2 shadow-sm border border-pink-100">
+                        <span id="seconds" class="block text-lg font-bold text-pink-900">00</span>
+                        <small class="text-[10px] text-gray-500 uppercase">Seg</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- PASE VIP DIGITAL -->
+        <section>
+            <div class="vip-pass p-6 text-center shadow-md relative">
+                <div class="absolute -right-6 -bottom-6 text-pink-100 text-8xl opacity-30 pointer-events-none">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <span class="inline-block p-2 rounded-full bg-amber-100 text-amber-700 mb-2 shadow-sm">
+                    <i class="fa-solid fa-ticket text-xl"></i>
+                </span>
+                <h3 class="font-serif text-lg font-bold text-pink-900 mb-1">Pase de Invitado Especial</h3>
+                <p class="text-xs text-gray-600 mb-3">Presenta este código digital en la entrada del salón</p>
+                <div class="bg-white py-2 px-4 rounded-xl border border-amber-200 inline-block font-mono font-bold text-amber-800 tracking-wider text-base shadow-inner mb-2">
+                    MARIANA-3AÑOS-VIP
+                </div>
+                <p class="text-[11px] text-pink-700/80 font-medium"><i class="fa-solid fa-user-group mr-1"></i> Válido hasta para 2 adultos y niños</p>
+            </div>
+        </section>
+
+        <!-- UBICACIÓN Y FECHA -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-church"></i> Ceremonia y Recepción</h2>
+            <div class="glass-card p-6 space-y-4">
+                
+                <!-- Fecha -->
+                <div class="flex items-start space-x-4 pb-4 border-b border-pink-100">
+                    <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                        <i class="fa-regular fa-calendar-days text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-gray-800 text-sm">Fecha de Celebración</h4>
+                        <p class="text-sm text-gray-600">Sábado 18 de Julio, 2026</p>
+                    </div>
+                </div>
+
+                <!-- Iglesia -->
+                <div class="flex items-start space-x-4 pb-4 border-b border-pink-100">
+                    <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                        <i class="fa-solid fa-place-of-worship text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-gray-800 text-sm">Ceremonia Religiosa (12:00 PM)</h4>
+                        <p class="text-sm text-gray-600">Parroquia del Señor del Buen Despacho<br><span class="text-xs text-gray-500">Av. Principal #45, Chimalhuacán, Edo. de México</span></p>
+                    </div>
+                </div>
+
+                <!-- Salón / Recepción -->
+                <div class="flex items-start space-x-4">
+                    <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                        <i class="fa-solid fa-cake-candles text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif font-bold text-gray-800 text-sm">Recepción y Fiesta (02:30 PM)</h4>
+                        <p class="text-sm text-gray-600">Salón de Fiestas "Princesa Sofía"<br><span class="text-xs text-gray-500">Calle Las Rosas #120, Col. Jardines</span></p>
+                    </div>
+                </div>
+
+                <a href="https://maps.google.com/?q=Parroquia+del+Señor+del+Buen+Despacho+Chimalhuacan" target="_blank" class="w-full mt-2 py-3 bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800 text-white rounded-xl font-medium text-sm flex items-center justify-center gap-2 shadow-lg shadow-pink-600/20 transition-all">
+                    <i class="fa-solid fa-map-location-dot"></i> Ver Ubicación en Google Maps
+                </a>
+            </div>
+        </section>
+
+        <!-- ITINERARIO -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Itinerario del Día</h2>
+            <div class="glass-card p-6">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="text-xs font-bold text-pink-700">12:00 PM</div>
+                        <div class="font-serif font-bold text-gray-800 text-sm">Misa de Presentación de 3 Años</div>
+                        <p class="text-xs text-gray-500">Agradecimiento a Dios por sus primeros 3 años de vida.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="text-xs font-bold text-pink-700">02:30 PM</div>
+                        <div class="font-serif font-bold text-gray-800 text-sm">Llegada de Invitados al Salón</div>
+                        <p class="text-xs text-gray-500">Recepción con música ambiental y mesa de dulces.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="text-xs font-bold text-pink-700">03:30 PM</div>
+                        <div class="font-serif font-bold text-gray-800 text-sm">Comida y Brindis Familiar</div>
+                        <p class="text-xs text-gray-500">Disfrutaremos de un delicioso menú de tres tiempos.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="text-xs font-bold text-pink-700">05:00 PM</div>
+                        <div class="font-serif font-bold text-gray-800 text-sm">¡Show Infantil y Piñata!</div>
+                        <p class="text-xs text-gray-500">Momento mágico con sus personajes de cuento favoritos.</p>
+                    </div>
+                    <div class="timeline-item mb-0">
+                        <div class="text-xs font-bold text-pink-700">06:30 PM</div>
+                        <div class="font-serif font-bold text-gray-800 text-sm">Pastel y Entrega de Recuerdos</div>
+                        <p class="text-xs text-gray-500">A cantar las mañanitas y partir el pastel juntos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERÍA DE RECUERDOS -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-images"></i> Momentos Mágicos</h2>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="glass-card p-2 text-center group overflow-hidden">
+                    <div class="w-full h-32 rounded-xl bg-pink-100 flex items-center justify-center text-pink-400 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-baby text-3xl"></i>
+                    </div>
+                    <span class="block mt-2 text-xs font-medium text-gray-600">Mi Bautizo</span>
+                </div>
+                <div class="glass-card p-2 text-center group overflow-hidden">
+                    <div class="w-full h-32 rounded-xl bg-amber-100 flex items-center justify-center text-amber-500 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-cake-candles text-3xl"></i>
+                    </div>
+                    <span class="block mt-2 text-xs font-medium text-gray-600">Primer Añito</span>
+                </div>
+                <div class="glass-card p-2 text-center group overflow-hidden">
+                    <div class="w-full h-32 rounded-xl bg-purple-100 flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles text-3xl"></i>
+                    </div>
+                    <span class="block mt-2 text-xs font-medium text-gray-600">Princesa de casa</span>
+                </div>
+                <div class="glass-card p-2 text-center group overflow-hidden">
+                    <div class="w-full h-32 rounded-xl bg-rose-100 flex items-center justify-center text-rose-400 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-heart text-3xl"></i>
+                    </div>
+                    <span class="block mt-2 text-xs font-medium text-gray-600">Mis 3 Años</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- MURO DE MENSAJES -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-comment-heart"></i> Palabras de Amor</h2>
+            <div class="space-y-3">
+                <div class="glass-card p-4 relative pl-6 border-l-4 border-pink-400">
+                    <p class="text-xs italic text-gray-700 mb-2">"Que Diosito llene tu vida de bendiciones, amor y muchísimas sonrisas hoy y siempre princesa hermosa. ¡Felices 3 años!"</p>
+                    <span class="block text-[11px] font-bold text-pink-800 text-right">- Con amor, Tus Padrinos</span>
+                </div>
+                <div class="glass-card p-4 relative pl-6 border-l-4 border-amber-400">
+                    <p class="text-xs italic text-gray-700 mb-2">"Verte crecer es la bendición más grande que la vida nos ha dado. Te amamos con todo el corazón, nuestra muñequita."</p>
+                    <span class="block text-[11px] font-bold text-pink-800 text-right">- Papá y Mamá</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CÓDIGO DE VESTIMENTA -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-shirt"></i> Código de Vestimenta</h2>
+            <div class="glass-card p-6 text-center">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-700 mb-3 shadow-inner">
+                    <i class="fa-solid fa-crown text-xl"></i>
+                </div>
+                <h3 class="font-serif font-bold text-pink-900 text-base mb-1">Estilo Formal / Tonos Pastel</h3>
+                <p class="text-xs text-gray-600 mb-2">Para hacer aún más mágico este día, sugerimos vestimenta formal.</p>
+                <div class="inline-block px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-[11px] text-amber-800 font-medium">
+                    <i class="fa-solid fa-palette mr-1"></i> Sugerencia: Evitar tono Rosa Pastel (reservado para la festejada)
+                </div>
+            </div>
+        </section>
+
+        <!-- NOTAS IMPORTANTES -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-circle-exclamation"></i> Notas Importantes</h2>
+            <div class="glass-card p-6">
+                <ul class="space-y-3 text-xs text-gray-700">
+                    <li class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-heart text-pink-600 mt-0.5"></i>
+                        <span>Se solicita puntualidad para la ceremonia religiosa a las 12:00 PM.</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-heart text-pink-600 mt-0.5"></i>
+                        <span>El salón cuenta con valet parking y área de juegos infantiles segura.</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <i class="fa-solid fa-heart text-pink-600 mt-0.5"></i>
+                        <span>Lluvia de sobres: El mejor regalo es tu presencia, pero si deseas tener un detalle con Sofía, habrá buzón disponible.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ÁLBUM COLABORATIVO Y HASHTAG -->
+        <section class="grid grid-cols-1 gap-4">
+            <div class="glass-card p-5 text-center">
+                <h3 class="font-serif font-bold text-pink-900 text-sm mb-1"><i class="fa-solid fa-camera-retro text-amber-600 mr-1"></i> Comparte Tus Fotos</h3>
+                <p class="text-xs text-gray-600 mb-3">¿Capturaste momentos lindos? Súbelos al álbum compartido.</p>
+                <button onclick="showToast('fa-cloud-arrow-up', '¡Módulo de álbum enlazado correctamente!')" class="px-4 py-2 bg-pink-100 hover:bg-pink-200 text-pink-800 rounded-xl text-xs font-bold transition-all shadow-sm">
+                    <i class="fa-solid fa-upload mr-1"></i> Subir Fotos al Álbum
+                </button>
+            </div>
+
+            <div class="glass-card p-5 text-center">
+                <h3 class="font-serif font-bold text-pink-900 text-sm mb-1"><i class="fa-solid fa-hashtag text-amber-600 mr-1"></i> Hashtag Oficial</h3>
+                <p class="text-xs text-gray-600 mb-2">Usa esta etiqueta en tus redes sociales:</p>
+                <div class="bg-pink-50 border border-pink-200 py-1.5 px-3 rounded-xl font-bold text-pink-900 text-sm inline-block mb-3">
+                    #Los3DeMariana2026
+                </div>
+                <div>
+                    <button onclick="navigator.clipboard.writeText('#Los3DeMariana2026'); showToast('fa-copy', '¡Hashtag copiado al portapapeles!');" class="px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-900 rounded-xl text-xs font-bold transition-all shadow-sm">
+                        <i class="fa-solid fa-copy mr-1"></i> Copiar Hashtag
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO DE ASISTENCIA (RSVP) -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-envelope-open-text"></i> Confirmación</h2>
+            <div class="glass-card p-6">
+                <form id="rsvpForm" onsubmit="handleRSVP(event)" class="space-y-4">
+                    <div>
+                        <label for="nombre" class="block text-xs font-bold text-gray-700 mb-1">Nombre de la Familia o Invitado:</label>
+                        <input type="text" id="nombre" required placeholder="Ej. Familia Gómez" class="w-full px-4 py-2.5 rounded-xl border border-pink-200 bg-white/90 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400">
+                    </div>
+                    <div>
+                        <label for="asistentes" class="block text-xs font-bold text-gray-700 mb-1">Número de Lugares Confirmados:</label>
+                        <input type="number" id="asistentes" min="1" max="6" value="2" required class="w-full px-4 py-2.5 rounded-xl border border-pink-200 bg-white/90 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400">
+                    </div>
+                    <div>
+                        <label for="mensaje" class="block text-xs font-bold text-gray-700 mb-1">Dedicatoria para Sofía:</label>
+                        <textarea id="mensaje" rows="2" placeholder="Escribe un mensaje tierno..." class="w-full px-4 py-2.5 rounded-xl border border-pink-200 bg-white/90 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-gradient-to-r from-pink-600 to-pink-700 hover:from-pink-700 hover:to-pink-800 text-white rounded-xl font-bold text-sm shadow-lg shadow-pink-600/20 transition-all">
+                        Confirmar Asistencia <i class="fa-solid fa-heart ml-1"></i>
+                    </button>
+                </form>
+
+                <!-- TARJETA DE ÉXITO -->
+                <div id="successCard" class="hidden text-center py-4">
+                    <div class="w-14 h-14 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm text-2xl">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-pink-900 text-lg mb-2">¡Lugares Reservados con Éxito!</h3>
+                    <p id="successMessageText" class="text-xs text-gray-600 mb-4 leading-relaxed">
+                        ¡Qué gran alegría! Tu asistencia ha quedado registrada. Nos emociona mucho compartir este día tan especial contigo.
+                    </p>
+                    <button onclick="resetForm()" class="px-5 py-2 bg-pink-100 hover:bg-pink-200 text-pink-800 rounded-xl text-xs font-bold transition-all shadow-sm">
+                        Modificar mi respuesta
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center py-6 border-t border-pink-100 bg-white/50 text-xs text-gray-500">
+            <p class="font-serif italic text-pink-900 font-bold mb-1">Presentación 3 Años &bull; Mariana Yaretzi</p>
+            <p>- Con mucho amor para nuestra princesa -</p>
+            <p>&copy; 2026 &bull; Powered by <a href="">Implustec!</a>. Todos los derechos reservados.</p>
+        </footer>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="./main.js"></script>
+</body>
+</html>
